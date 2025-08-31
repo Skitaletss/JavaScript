@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Збір інформації</title>
+</head>
+<body>
+    <script>
+        let allCorrect = false;
+        
+        while (!allCorrect) {
+            let name = prompt("Введіть ваше ПІБ:");
+            if (name === null) {
+                alert("Скасовано!");
+                break;
+            }
+            
+            let gender = prompt("Введіть вашу стать:");
+            if (gender === null) {
+                alert("Скасовано!");
+                break;
+            }
+            
+            let age = prompt("Введіть ваш вік:");
+            if (age === null) {
+                alert("Скасовано!");
+                break;
+            }
+            
+            let email = prompt("Введіть ваш email:");
+            if (email === null) {
+                alert("Скасовано!");
+                break;
+            }
+            
+            let isCorrect = confirm(
+                "Перевірте інформацію:\n\n" +
+                "ПІБ: " + name + "\n" +
+                "Стать: " + gender + "\n" + 
+                "Вік: " + age + "\n" +
+                "Email: " + email + "\n\n" +
+                "Все вірно?"
+            );
+            
+            if (isCorrect) {
+                alert("Дякуємо! Інформація збережена.");
+                allCorrect = true;
+            } else {
+                let tryAgain = confirm("Повторити введення?");
+                if (!tryAgain) {
+                    alert("Скасовано!");
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
