@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        alert("Загадайте число від 0 до 100. Я буду вгадувати!");
+        
+        let low = 0;
+        let high = 100;
+        let tries = 0;
+        
+        while (true) {
+            tries++;
+            
+            let computerGuess = Math.floor((low + high) / 2);
+            
+            let userAnswer = prompt(
+                "Моя спроба №" + tries + ": " + computerGuess + "\n\n" +
+                "Ваше число:\n" +
+                "> " + computerGuess + " (більше)\n" +
+                "< " + computerGuess + " (менше)\n" +
+                "= " + computerGuess + " (вірно)\n\n" +
+                "Введіть >, < або ="
+            );
+            
+            if (userAnswer === ">") {
+                low = computerGuess + 1;
+            } else if (userAnswer === "<") {
+                high = computerGuess - 1; 
+            } else if (userAnswer === "=") {
+                alert("Я вгадав! Ваше число: " + computerGuess + "\nСпроб: " + tries);
+                break;
+            } else if (userAnswer === null) {
+                alert("Гру завершено!");
+                break;
+            } else {
+                alert("Будь ласка, введіть тільки >, < або =");
+                tries--;
+            }
+            
+            if (low > high) {
+                alert("Сталася помилка! Перезапустіть гру.");
+                break;
+            }
+        }
+    </script>
+</body>
+</html>
