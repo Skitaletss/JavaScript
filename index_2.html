@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Перевірка щасливого квитка</title>
+</head>
+<body>
+    <script>
+        let ticket = prompt("Введіть номер трамвайного квитка (6 цифр):");
+        
+        if (ticket === null) {
+            alert("Скасовано!");
+        } else {
+            if (ticket.length !== 6 || isNaN(ticket)) {
+                alert("Помилка! Треба ввести рівно 6 цифр.");
+            } else {
+                let firstPart = ticket.substring(0, 3); 
+                let secondPart = ticket.substring(3, 6); 
+                
+                let sum1 = 0;
+                let sum2 = 0;
+                
+                for (let i = 0; i < 3; i++) {
+                    sum1 += Number(firstPart[i]);
+                }
+                 
+                for (let i = 0; i < 3; i++) {
+                    sum2 += Number(secondPart[i]);
+                }
+                
+                if (sum1 === sum2) {
+                    alert("Вітаю! Це щасливий квиток! 🎉");
+                } else {
+                    alert("На жаль, це звичайний квиток.");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
