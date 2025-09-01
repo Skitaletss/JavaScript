@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Цифровий годинник</title>
+</head>
+<body>
+    <div style="text-align:center">
+        <img src="0.gif" id="h1">
+        <img src="0.gif" id="h2">
+        <img src="points.gif">
+        <img src="0.gif" id="m1">
+        <img src="0.gif" id="m2">
+        <img src="points.gif">
+        <img src="0.gif" id="s1">
+        <img src="0.gif" id="s2">
+    </div>
+
+    <script>
+        const digits = [
+            "0.gif", "1.gif", "2.gif", "3.gif", "4.gif", 
+            "5.gif", "6.gif", "7.gif", "8.gif", "9.gif"
+        ];
+
+        function updateTime() {
+            const now = new Date();
+            
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            
+            document.getElementById("h1").src = digits[hours[0]];
+            document.getElementById("h2").src = digits[hours[1]];
+            document.getElementById("m1").src = digits[minutes[0]];
+            document.getElementById("m2").src = digits[minutes[1]];
+            document.getElementById("s1").src = digits[seconds[0]];
+            document.getElementById("s2").src = digits[seconds[1]];
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
