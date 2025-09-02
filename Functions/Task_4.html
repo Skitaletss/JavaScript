@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mean Function</title>
+</head>
+<body>
+    <script>
+        function mean(...args) {
+            const numbers = args.filter(arg => typeof arg === 'number' && !isNaN(arg));
+            
+            if (numbers.length === 0) {
+                return 0;
+            }
+            
+            const sum = numbers.reduce((total, num) => total + num, 0);
+            
+            return sum / numbers.length;
+        }
+
+        console.log(mean(1, 2, "a"));              
+        console.log(mean(true, 2, false));         
+        console.log(mean());                       
+        console.log(mean(1, 2, 3, "text", null));  
+        console.log(mean(5, "5", 5.5));            
+    </script>
+</body>
+</html>
